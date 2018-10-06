@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <h1>
+    Total gold: {{ totalGold }}
+  </h1>
+  <button (click)="saveGame()" class="btn btn-info">Save game</button>
+  <button (click)="resetGame()" class="btn btn-danger">Reset game</button>
+</div>
+<div class="card-deck">
+  <div *ngFor="let location of goldLocations" class="card">
+    <h3 class="card-header">{{ location['name'] }}</h3>
+    <div class="card-body">
+      {{ location['description'] }}
+    </div>
+    <div (click)="getGoldOutcome(location)" class="btn mx-3 mb-3 btn-dark">Get gold</div>
+  </div>
+
+</div>
+<div class="card-deck">
+  <div class="card mt-4 mx-3 col-9 p-0">
+  <div class="card-header">Adventure log</div>
+  <ul class="list-group" style="height:300px; overflow: scroll">
+    <li *ngFor="let msg of gameLog" class="list-group-item">{{ msg }}</li>
+  </ul>
+  </div>
+
+  <div class="card col-3 p-0 mt-4">
+    <div class="card-header">Top 5 scores</div>
+    <ul class="list-group" style="height:300px; overflow: scroll">
+        <li *ngFor="let score of leaderBoard" class="list-group-item">{{ score }} total gold</li>
+      </ul>
+  </div>
+</div>
